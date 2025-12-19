@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Juan Alberto Granados Ramírez</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #003366; /* Azul Oscuro Profesional */
+            --accent-color: #005b96; /* Azul Medio */
+            --text-dark: #333333;
+            --text-light: #666666;
+            --bg-light: #f4f7f6;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background-color: var(--white);
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            display: grid;
+            grid-template-columns: 300px 1fr; /* Columna izquierda fija, derecha flexible */
+        }
+
+        /* --- SIDEBAR (Izquierda) --- */
+        .sidebar {
+            background-color: var(--primary-color);
+            color: var(--white);
+            padding: 30px;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 4px solid var(--white);
+            object-fit: cover;
+            margin-bottom: 20px;
+            background-color: #ddd; /* Color de fondo si no hay imagen */
+        }
+
+        .sidebar h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .sidebar h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            font-weight: 400;
+            opacity: 0.8;
+            margin-bottom: 30px;
+        }
+
+        .contact-info, .skills-section, .education-section {
+            text-align: left;
+            margin-bottom: 30px;
+        }
+
+        .sidebar-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            border-bottom: 1px solid rgba(255,255,255,0.3);
+            padding-bottom: 5px;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+        }
+
+        .contact-item {
+            margin-bottom: 12px;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-item i {
+            width: 25px;
+            margin-right: 10px;
+            color: #bdc3c7;
+        }
+
+        .contact-item a {
+            color: var(--white);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: #bdc3c7;
+        }
+
+        .skill-tag {
+            display: inline-block;
+            background-color: rgba(255,255,255,0.1);
+            padding: 4px 8px;
+            border-radius: 4px;
+            margin: 2px;
+            font-size: 0.85rem;
+        }
+
+        .edu-item {
+            margin-bottom: 15px;
+        }
+        .edu-degree {
+            font-weight: bold;
+            display: block;
+        }
+        .edu-school {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+        .edu-date {
+            font-size: 0.8rem;
+            font-style: italic;
+            opacity: 0.7;
+        }
+
+        /* --- MAIN CONTENT (Derecha) --- */
+        .main-content {
+            padding: 40px;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .section-title i {
+            margin-right: 15px;
+        }
+
+        .profile-summary {
+            font-size: 1rem;
+            color: var(--text-dark);
+            text-align: justify;
+        }
+
+        .job-item {
+            margin-bottom: 25px;
+        }
+
+        .job-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-dark);
+        }
+
+        .job-company {
+            font-weight: 500;
+            color: var(--accent-color);
+        }
+
+        .job-date {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            font-weight: 500;
+        }
+
+        .job-desc ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .job-desc ul li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 5px;
+            color: #4a4a4a;
+        }
+
+        .job-desc ul li::before {
+            content: "•";
+            color: var(--accent-color);
+            font-weight: bold;
+            position: absolute;
+            left: 0;
+        }
+
+        .cert-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+        
+        .cert-item {
+            background: #f9f9f9;
+            padding: 10px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        /* --- RESPONSIVE --- */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+                margin: 0;
+            }
+            .sidebar {
+                text-align: center;
+            }
+            .contact-info {
+                text-align: center;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+            .main-content {
+                padding: 25px;
+            }
+            .job-header {
+                flex-direction: column;
+            }
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <aside class="sidebar">
+            <img src="perfil.jpg" alt="Juan Granados" class="profile-img">
+            
+            <h1>Juan A. Granados</h1>
+            <h2>Ingeniería de Software</h2>
+
+            <div class="contact-info">
+                <h3 class="sidebar-title">Contacto</h3>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i> Ciudad de México
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-linkedin"></i> 
+                    <a href="https://linkedin.com/in/tu-usuario" target="_blank">Juan A. Granados</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i> 
+                    <a href="https://github.com/1105agramon" target="_blank">1105agramon</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i> 
+                    <a href="mailto:correo@ejemplo.com">garj980511@gmail.com</a>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i> 
+                    <a href="mailto:correo@ejemplo.com" style="font-size: 11px;">juan.granados.ramirez@estudiante.uacm.edu.mx</a>
+                </div>
+            </div>
+
+            <div class="education-section">
+                <h3 class="sidebar-title">Educación</h3>
+                <div class="edu-item">
+                    <span class="edu-degree">Licenciatura en Ing. de Software</span>
+                    <span class="edu-school">UACM - Plantel San Lorenzo Tezonco</span>
+                    <span class="edu-date">2018 - Presente (94% Avance)</span>
+                    <div style="font-size: 0.8rem; margin-top: 5px;">Promedio: 9.02 | Créditos: 387/411</div>
+                </div>
+                <div class="edu-item">
+                    <span class="edu-degree">Técnico en Programación</span>
+                    <span class="edu-school">CETIS 50</span>
+                    <span class="edu-date">Titulado</span>
+                </div>
+            </div>
+
+            <div class="skills-section">
+                <h3 class="sidebar-title">Hard Skills</h3>
+                <div class="skill-tag">Java / JavaFX</div>
+                <div class="skill-tag">Python</div>
+                <div class="skill-tag">C / C++</div>
+                <div class="skill-tag">Spring Boot</div>
+                <div class="skill-tag">HTML5 / CSS3 / JS</div>
+                <div class="skill-tag">Android (Kotlin/Java)</div>
+                <div class="skill-tag">SQL Server / MariaDB</div>
+                <div class="skill-tag">PostgreSQL</div>
+                <div class="skill-tag">MATLAB / Octave</div>
+                <div class="skill-tag">Redes (Cisco)</div>
+            </div>
+
+             <div class="skills-section">
+                <h3 class="sidebar-title">Soft Skills</h3>
+                <div class="skill-tag">Liderazgo</div>
+                <div class="skill-tag">Trabajo en Equipo</div>
+                <div class="skill-tag">Análisis de Requisitos</div>
+                <div class="skill-tag">Resolución de Problemas</div>
+            </div>
+        </aside>
+
+        <main class="main-content">
+            
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-user-tie"></i> Perfil Profesional</h3>
+                <p class="profile-summary">
+                    Estudiante avanzado de Ingeniería de Software (94% de créditos completados) con promedio destacado de 9.02. Poseo una sólida formación en desarrollo Full Stack, bases de datos y algoritmos. Cuento con experiencia académica apoyando en la docencia de materias complejas, demostrando capacidad de liderazgo y comunicación técnica. Busco una oportunidad profesional para aplicar mis habilidades en Java, Python y SQL, aportando soluciones eficientes y de calidad.
+                </p>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-chalkboard-teacher"></i> Experiencia Académica y Técnica</h3>
+                
+                <article class="job-item">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Monitor Académico / Auxiliar Docente</span>
+                            <br>
+                            <span class="job-company">UACM - Colegio de Ciencia y Tecnología</span>
+                        </div>
+                    </div>
+                    <div class="job-desc">
+                        <p>Seleccionado para apoyar a profesores titulares en la instrucción de materias fundamentales de ingeniería:</p>
+                        <ul>
+                            <li><strong>Asignaturas:</strong> Introducción a la Programación, Ingeniería de Software, Álgebra Lineal, Cálculo Diferencial e Integral.</li>
+                            <li>Brindé asesoría personalizada a estudiantes para reforzar conceptos lógicos y matemáticos.</li>
+                            <li>Colaboré en la revisión de ejercicios prácticos de código y algoritmos.</li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-briefcase"></i> Trayectoria Laboral</h3>
+                
+                <article class="job-item">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Staff de Seguridad y Logística</span>
+                            <span class="job-company"> - OCESA</span>
+                        </div>
+                        <span class="job-date">2021 - 2023</span>
+                    </div>
+                    <div class="job-desc">
+                        <ul>
+                            <li>Gestión de control de accesos y flujo de personas en eventos masivos.</li>
+                            <li>Resolución de conflictos y atención directa al cliente/asistente bajo situaciones de presión.</li>
+                            <li>Coordinación con equipos grandes para garantizar la seguridad del inmueble y los asistentes.</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="job-item">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Conductor Privado y Logística</span>
+                            <span class="job-company"> - Independiente</span>
+                        </div>
+                        <span class="job-date">2018 - 2023</span>
+                    </div>
+                    <div class="job-desc">
+                        <ul>
+                            <li>Planificación eficiente de rutas y gestión de tiempos para cumplimiento de agenda de clientes.</li>
+                            <li>Cálculo de tarifas y administración de ingresos por servicios múltiples.</li>
+                        </ul>
+                    </div>
+                </article>
+                
+                <article class="job-item">
+                    <div class="job-header">
+                        <div>
+                            <span class="job-title">Carpintería y Maquila</span>
+                            <span class="job-company"> - CatMed De México</span>
+                        </div>
+                        <span class="job-date">2016 - 2023</span>
+                    </div>
+                    <div class="job-desc">
+                        <ul>
+                            <li>Fabricación de mobiliario con alta atención al detalle y precisión en medidas.</li>
+                            <li>Gestión de materia prima y entrega de producto final a clientes comerciales y residenciales.</li>
+                        </ul>
+                    </div>
+                </article>
+            </section>
+
+            <section class="section">
+                <h3 class="section-title"><i class="fas fa-certificate"></i> Certificaciones</h3>
+                <div class="cert-grid">
+                    <div class="cert-item">
+                        <strong>Fundamentos de ChatGPT</strong><br>
+                        <small>Santander Open Academy (2025)</small><br>
+                        <small style="color: #666;">ID: OA-2025-0805001536908</small>
+                    </div>
+                    <div class="cert-item">
+                        <strong>Python</strong><br>
+                        <small>Santander Open Academy (2025)</small><br>
+                        <small style="color: #666;">ID: OA-2025-0107000725769</small>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+    </div>
+</body>
+</html>
